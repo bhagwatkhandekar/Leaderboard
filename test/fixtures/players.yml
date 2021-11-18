@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  score: 
+  contact_number: 
+  address: 
+  match_win: 
+  game_id: 
+  team_id: 1
+
+two:
+  name: 
+  score: 
+  contact_number: 
+  address: 
+  match_win: 
+  game_id: 
+  team_id: 1

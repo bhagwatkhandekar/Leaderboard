@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<h1 align="center">Top 10 members Leader Board</h1>
+<h2>
+
+  NOTE: To create the player profile please follow the below instructions<br>
+</h2> 
+(We are assuming that user has already been created)
+
+<h3>
+  1.Create the team:- <%= link_to('New Team', new_team_path, class: 'css_class', style: 'color:#0000ff
+')%><br>
+  2.Create the Game:- <%= link_to('New Game', new_game_path, class: 'css_class', style: 'color:#0000ff')%>
+</h3> 
+<h4>You can see all player stats click on link:- 
+<%= link_to('All Players', players_path, class: 'css_class', style: 'color:#0000ff')%> </h4> <br>
+
+<table class="table table-striped">
+  <h3 align="Center">Top 10 players(Avg)</h3>
+  <br>
+  <thead>
+    <tr>
+      <th>Player Name</th>
+      <th>Total Games</th>
+      <th>Average Score</th>
+      <th>Total Wins</th>
+      <th>Total Losses</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.players.length %></td>
+        <td><%= user.players.average(:score) %></td>
+        <td><%= user.players.where(match_win: true).length %></td>
+        <td><%= user.players.where(match_win: false).length %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
